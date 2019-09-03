@@ -35,12 +35,12 @@
   <span class="menu-title">{{ menuItem.title }}</span>
 </a>
 <a *ngIf="menuItem.children"
-   (click)="$event.preventDefault(); onToggleSubMenu(menuItem);"
+   [routerLink]="menuItem.link"
+   (click)="onToggleSubMenu(menuItem);"
    [attr.target]="menuItem.target"
    [attr.title]="menuItem.title"
    [class.active]="menuItem.selected"
-   (mouseenter)="onHoverItem(menuItem)"
-   href="#">
+   (mouseenter)="onHoverItem(menuItem)">
   <nb-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></nb-icon>
   <span class="menu-title">{{ menuItem.title }}</span>
   <nb-icon class="expand-state" [icon]="getExpandStateIcon()" pack="nebular-essentials"></nb-icon>
